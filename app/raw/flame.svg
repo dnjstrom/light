@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="flame.svg"
+   inkscape:export-filename="C:\Users\Daniel\AndroidStudioProjects\Flashlight\app\src\main\ic_launcher-web.png"
+   inkscape:export-xdpi="27.930658"
+   inkscape:export-ydpi="27.930658">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.24748737"
+     inkscape:cx="657.64619"
+     inkscape:cy="501.80316"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showborder="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#ffe190;fill-opacity:1;stroke:none"
+       d="M -526.18002,49.575563 C -298.87246,-107.47194 -365.4871,-362.06218 -495.63963,-570.31607 137.65572,-562.88025 646.92791,3.6010725 704.85971,353.47678 762.79159,703.35244 408.89726,1079.4839 -64.201286,1079.4839 -840.36825,1042.44 -1023.7152,406.77174 -526.18002,49.575563 z"
+       id="path2989-4"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cczcc"
+       inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:#ffc022;fill-opacity:1;stroke:none"
+       d="M -498.69061,86.255436 C -284.75544,-61.553033 -319.94586,-341.03724 -442.44159,-537.03966 153.59729,-530.04129 605.4039,42.985601 659.92762,372.27829 714.45134,701.57098 381.37648,1055.5747 -63.88987,1055.5747 -794.39531,1020.7102 -966.95606,422.43794 -498.69061,86.255436 z"
+       id="path2989"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cczcc"
+       inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:#ff9900;fill-opacity:1;stroke:none"
+       d="M -324.77542,330.1287 C -164.90766,219.67557 -44.14786,-47.12088 -107.22293,-209.18878 269.3957,-90.29632 519.25857,264.36413 560.00258,510.43533 600.74668,756.50652 294.92402,1021.0436 -37.811074,1021.0436 -583.69735,994.99039 -674.69711,581.34847 -324.77542,330.1287 z"
+       id="path2989-7"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cczcc"
+       inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:#ff6600;fill-opacity:1;stroke:none"
+       d="M -220.65964,481.82714 C -113.52301,407.80612 6.5916026,274.68763 -21.476894,128.80609 222.46022,243.74489 358.70076,496.01254 359.56491,625.06456 360.85914,818.35274 165.51601,996.22551 -57.468991,996.22551 -423.29889,978.76573 -455.16235,650.18401 -220.65964,481.82714 z"
+       id="path2989-1"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccscc"
+       inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="fill:#920000;fill-opacity:1;stroke:none"
+       d="M -142.33094,698.80139 C -85.843755,659.77423 41.526761,602.96036 74.165424,503.75831 162.51501,614.79844 165.21262,706.29631 163.58915,774.3225 161.12171,877.71241 61.277973,970.01498 -56.289593,970.01498 -249.17133,960.80942 -265.97115,787.56658 -142.33094,698.80139 z"
+       id="path2989-1-0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccscc"
+       inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+  </g>
+</svg>
