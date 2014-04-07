@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="flashlightBG">#000000</color>
-    <color name="screenlightBG">#FFFFFF</color>
     <string-array name="screenColors">
         <item>#FFFFFF</item>
-        <item>#F9D980</item>
-        <item>#EFC94C</item>
-        <item>#E27A3F</item>
-        <item>#EB4737</item>
-        <item>#FF4D67</item>
-        <item>#AD2350</item>
-        <item>#B6B82F</item>
-        <item>#11B09C</item>
-        <item>#09CDDA</item>
+        <item>#fcff00</item>
+        <item>#b4f700</item>
+        <item>#08cc08</item>
+        <item>#09e69a</item>
+        <item>#19aeff</item>
+        <item>#d61eff</item>
+        <item>#f84282</item>
+        <item>#fa0000</item>
+        <item>#ff6600</item>
     </string-array>
 </resources>
