@@ -52,8 +52,8 @@ public class MainActivity extends FragmentActivity {
         }
         fragments.add( (ActiveFragment) Fragment.instantiate(this, ScreenLight.class.getName()));
 
+        pager = (ViewPager) super.findViewById(R.id.mainpager);
         adapter = new MainPagerAdapter(super.getSupportFragmentManager(), fragments);
-        pager = (ViewPager) super.findViewById(R.id.viewpager);
         pager.setAdapter(adapter);
 
         pager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {

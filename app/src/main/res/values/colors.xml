@@ -2,4 +2,16 @@
 <resources>
     <color name="flashlightBG">#000000</color>
     <color name="screenlightBG">#FFFFFF</color>
+    <string-array name="screenColors">
+        <item>#FFFFFF</item>
+        <item>#F9D980</item>
+        <item>#EFC94C</item>
+        <item>#E27A3F</item>
+        <item>#EB4737</item>
+        <item>#FF4D67</item>
+        <item>#AD2350</item>
+        <item>#B6B82F</item>
+        <item>#11B09C</item>
+        <item>#09CDDA</item>
+    </string-array>
 </resources>
