@@ -28,6 +28,7 @@ public class ScreenLight extends ActiveFragment {
         VerticalViewPager pager = (VerticalViewPager) view.findViewById(R.id.screenpager);
         ScreenColorAdapter adapter = new ScreenColorAdapter(getActivity().getSupportFragmentManager(), colors);
         pager.setAdapter(adapter);
+        pager.setCurrentItem(colors.length * 1000);
 
         return view;
     }

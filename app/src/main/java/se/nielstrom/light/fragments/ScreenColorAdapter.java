@@ -10,9 +10,11 @@ import android.support.v4.app.FragmentStatePagerAdapter;
  */
 public class ScreenColorAdapter extends FragmentStatePagerAdapter {
     String[] colors;
+    FragmentManager fm;
 
     public ScreenColorAdapter(FragmentManager fm, String[] colors) {
         super(fm);
+        this.fm = fm;
         this.colors = colors;
     }
 
@@ -25,6 +27,6 @@ public class ScreenColorAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return colors.length;
+        return Integer.MAX_VALUE;
     }
 }
