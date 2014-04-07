@@ -26,6 +26,15 @@ public class FlashLight extends ActiveFragment {
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+        if (camera != null) {
+            camera.release();
+            camera = null;
+        }
+    }
+
+    @Override
     protected void onActivate() {
         if (camera == null) {
             camera = Camera.open();
@@ -39,12 +48,12 @@ public class FlashLight extends ActiveFragment {
 
     @Override
     protected void onDeactivate() {
-        if (camera != null) {
-            parameters.setFlashMode(Parameters.FLASH_MODE_OFF);
-            camera.setParameters(parameters);
-            camera.stopPreview();
-            camera.release();
-            camera = null;
+        if (camera == null) {
+            return;
         }
+
+        parameters.setFlashMode(Parameters.FLASH_MODE_OFF);
+        camera.setParameters(parameters);
+        camera.stopPreview();
     }
 }
