@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -20,14 +21,16 @@ public class FlashLight extends ActiveFragment {
     private Parameters parameters;
     private Timer timer;
     private int deactivationDelay = 60 * 1000; // 1 min
+    private View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if(container == null) {
             return null;
         }
+        view = inflater.inflate(R.layout.flashlight, container, false);
 
-        return inflater.inflate(R.layout.flashlight, container, false);
+        return view;
     }
 
     @Override
@@ -52,6 +55,8 @@ public class FlashLight extends ActiveFragment {
 
         timer = new Timer();
         timer.schedule(new FlashSafeGuard(), deactivationDelay);
+
+        view.setKeepScreenOn(true);
     }
 
     @Override
@@ -60,6 +65,7 @@ public class FlashLight extends ActiveFragment {
         parameters.setFlashMode(Parameters.FLASH_MODE_OFF);
         camera.setParameters(parameters);
         camera.stopPreview();
+        view.setKeepScreenOn(false);
     }
 
     private class FlashSafeGuard extends TimerTask {
