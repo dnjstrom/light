@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.Menu;
 
 import java.util.ArrayList;
@@ -30,7 +29,6 @@ public class MainActivity extends FragmentActivity {
 
     public void onResume() {
         super.onResume();
-        Log.d(getClass().getSimpleName(), "Resuming activity!");
         ActiveFragment f = ((ActiveFragment) adapter.getItem(pager.getCurrentItem()));
         f.activate();
     }

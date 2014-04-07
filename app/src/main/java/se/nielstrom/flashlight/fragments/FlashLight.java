@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import se.nielstrom.flashlight.app.R;
 
 /**
@@ -15,6 +18,8 @@ import se.nielstrom.flashlight.app.R;
 public class FlashLight extends ActiveFragment {
     private Camera camera;
     private Parameters parameters;
+    private Timer timer;
+    private int deactivationDelay = 60 * 1000; // 1 min
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,16 +49,24 @@ public class FlashLight extends ActiveFragment {
         parameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
         camera.setParameters(parameters);
         camera.startPreview();
+
+        timer = new Timer();
+        timer.schedule(new FlashSafeGuard(), deactivationDelay);
     }
 
     @Override
     protected void onDeactivate() {
-        if (camera == null) {
-            return;
-        }
-
+        timer.cancel();
         parameters.setFlashMode(Parameters.FLASH_MODE_OFF);
         camera.setParameters(parameters);
         camera.stopPreview();
+    }
+
+    private class FlashSafeGuard extends TimerTask {
+        @Override
+        public void run() {
+            FlashLight.this.deactivate();
+            timer.cancel();
+        }
     }
 }
