@@ -2,13 +2,13 @@ package se.nielstrom.light.fragments;
 
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.util.Timer;
-import java.util.TimerTask;
+import android.widget.ProgressBar;
 
 import se.nielstrom.light.app.R;
 
@@ -18,9 +18,10 @@ import se.nielstrom.light.app.R;
 public class FlashLight extends ActiveFragment {
     private Camera camera;
     private Parameters parameters;
-    private Timer timer;
+    private FlashSafeGuard timer;
     private int deactivationDelay = 60 * 1000; // 1 min
     private View view;
+    private ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,6 +29,9 @@ public class FlashLight extends ActiveFragment {
             return null;
         }
         view = inflater.inflate(R.layout.flashlight, container, false);
+
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        progressBar.setMax(deactivationDelay);
 
         return view;
     }
@@ -52,26 +56,65 @@ public class FlashLight extends ActiveFragment {
         camera.setParameters(parameters);
         camera.startPreview();
 
-        timer = new Timer();
-        timer.schedule(new FlashSafeGuard(), deactivationDelay);
+        timer = new FlashSafeGuard();
+        timer.execute();
 
         view.setKeepScreenOn(true);
     }
 
     @Override
     protected void onDeactivate() {
-        timer.cancel();
+        timer.cancel(true);
         parameters.setFlashMode(Parameters.FLASH_MODE_OFF);
         camera.setParameters(parameters);
         camera.stopPreview();
         view.setKeepScreenOn(false);
     }
 
-    private class FlashSafeGuard extends TimerTask {
+    private class FlashSafeGuard extends AsyncTask<Void, Void, Void> {
+
+        long startMillis;
+        private int lightTimeLeft;
+
+        public FlashSafeGuard() {
+            startMillis = SystemClock.elapsedRealtime();
+            lightTimeLeft = deactivationDelay;
+        }
+
         @Override
-        public void run() {
+        protected Void doInBackground(Void... voids) {
+            while(lightTimeLeft > 0) {
+                lightTimeLeft = (int) (deactivationDelay - (SystemClock.elapsedRealtime() - startMillis));
+                publishProgress();
+
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                    return null;
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... v) {
+            progressBar.setProgress(lightTimeLeft);
+        }
+
+        @Override
+        protected void onPostExecute(Void v) {
+            cancel();
+        }
+
+        @Override
+        protected void onCancelled(Void v) {
+            cancel();
+        }
+
+        private void cancel() {
+            lightTimeLeft = 0;
+            publishProgress();
             FlashLight.this.deactivate();
-            timer.cancel();
         }
     }
 }
