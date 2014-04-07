@@ -1,4 +1,4 @@
-package se.nielstrom.flashlight.fragments;
+package se.nielstrom.light.fragments;
 
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
@@ -6,12 +6,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-import se.nielstrom.flashlight.app.R;
+import se.nielstrom.light.app.R;
 
 /**
  * Created by Daniel on 2014-04-06.

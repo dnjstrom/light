@@ -1,4 +1,4 @@
-package se.nielstrom.flashlight.app;
+package se.nielstrom.light.app;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -11,9 +11,9 @@ import android.view.Menu;
 import java.util.ArrayList;
 import java.util.List;
 
-import se.nielstrom.flashlight.fragments.ActiveFragment;
-import se.nielstrom.flashlight.fragments.FlashLight;
-import se.nielstrom.flashlight.fragments.ScreenLight;
+import se.nielstrom.light.fragments.ActiveFragment;
+import se.nielstrom.light.fragments.FlashLight;
+import se.nielstrom.light.fragments.ScreenLight;
 
 public class MainActivity extends FragmentActivity {
 

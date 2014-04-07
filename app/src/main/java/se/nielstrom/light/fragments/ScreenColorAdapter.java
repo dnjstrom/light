@@ -1,4 +1,4 @@
-package se.nielstrom.flashlight.fragments;
+package se.nielstrom.light.fragments;
 
 import android.graphics.Color;
 import android.support.v4.app.Fragment;

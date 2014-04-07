@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="C:\Users\Daniel\AndroidStudioProjects\Flashlight" />
-            <option value="C:\Users\Daniel\AndroidStudioProjects\Flashlight\app" />
+            <option value="C:\Users\Daniel\AndroidStudioProjects\Light" />
+            <option value="C:\Users\Daniel\AndroidStudioProjects\Light\app" />
           </set>
         </option>
       </GradleProjectSettings>

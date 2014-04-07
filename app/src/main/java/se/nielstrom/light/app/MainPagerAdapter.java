@@ -1,11 +1,11 @@
-package se.nielstrom.flashlight.app;
+package se.nielstrom.light.app;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.List;
 
-import se.nielstrom.flashlight.fragments.ActiveFragment;
+import se.nielstrom.light.fragments.ActiveFragment;
 
 
 /**

@@ -1,4 +1,4 @@
-package se.nielstrom.flashlight.fragments;
+package se.nielstrom.light.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import se.nielstrom.flashlight.app.R;
+import se.nielstrom.light.app.R;
 
 /**
  * Created by Daniel on 2014-04-07.

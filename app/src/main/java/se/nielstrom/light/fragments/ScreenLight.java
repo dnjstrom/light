@@ -1,4 +1,4 @@
-package se.nielstrom.flashlight.fragments;
+package se.nielstrom.light.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import fr.castorflex.android.verticalviewpager.VerticalViewPager;
-import se.nielstrom.flashlight.app.R;
+import se.nielstrom.light.app.R;
 
 /**
  * Created by Daniel on 2014-04-06.
