@@ -94,7 +94,9 @@ public class ScreenLight extends ActiveFragment implements View.OnTouchListener,
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        restartUiTimer();
+        if (isActive) {
+            restartUiTimer();
+        }
         return false;
     }
 

@@ -9,7 +9,7 @@ import android.support.v4.app.Fragment;
  */
 public abstract class ActiveFragment extends Fragment {
     private boolean isResumed = false;
-    private boolean isActive = false;
+    protected boolean isActive = false;
     private boolean isToBeActivated = false;
 
     protected abstract void onActivate();
