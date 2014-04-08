@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.24748737"
-     inkscape:cx="657.64619"
-     inkscape:cy="501.80316"
+     inkscape:zoom="0.69999999"
+     inkscape:cx="136.66713"
+     inkscape:cy="283.13607"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -38,7 +38,9 @@
      inkscape:window-height="1137"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -55,50 +57,132 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <path
-       style="fill:#ffe190;fill-opacity:1;stroke:none"
-       d="M -526.18002,49.575563 C -298.87246,-107.47194 -365.4871,-362.06218 -495.63963,-570.31607 137.65572,-562.88025 646.92791,3.6010725 704.85971,353.47678 762.79159,703.35244 408.89726,1079.4839 -64.201286,1079.4839 -840.36825,1042.44 -1023.7152,406.77174 -526.18002,49.575563 z"
-       id="path2989-4"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cczcc"
-       inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
-       inkscape:export-xdpi="50"
-       inkscape:export-ydpi="50" />
-    <path
-       style="fill:#ffc022;fill-opacity:1;stroke:none"
-       d="M -498.69061,86.255436 C -284.75544,-61.553033 -319.94586,-341.03724 -442.44159,-537.03966 153.59729,-530.04129 605.4039,42.985601 659.92762,372.27829 714.45134,701.57098 381.37648,1055.5747 -63.88987,1055.5747 -794.39531,1020.7102 -966.95606,422.43794 -498.69061,86.255436 z"
-       id="path2989"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cczcc"
-       inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
-       inkscape:export-xdpi="50"
-       inkscape:export-ydpi="50" />
-    <path
-       style="fill:#ff9900;fill-opacity:1;stroke:none"
-       d="M -324.77542,330.1287 C -164.90766,219.67557 -44.14786,-47.12088 -107.22293,-209.18878 269.3957,-90.29632 519.25857,264.36413 560.00258,510.43533 600.74668,756.50652 294.92402,1021.0436 -37.811074,1021.0436 -583.69735,994.99039 -674.69711,581.34847 -324.77542,330.1287 z"
-       id="path2989-7"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cczcc"
-       inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
-       inkscape:export-xdpi="50"
-       inkscape:export-ydpi="50" />
-    <path
-       style="fill:#ff6600;fill-opacity:1;stroke:none"
-       d="M -220.65964,481.82714 C -113.52301,407.80612 6.5916026,274.68763 -21.476894,128.80609 222.46022,243.74489 358.70076,496.01254 359.56491,625.06456 360.85914,818.35274 165.51601,996.22551 -57.468991,996.22551 -423.29889,978.76573 -455.16235,650.18401 -220.65964,481.82714 z"
-       id="path2989-1"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccscc"
-       inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
-       inkscape:export-xdpi="50"
-       inkscape:export-ydpi="50" />
-    <path
-       style="fill:#920000;fill-opacity:1;stroke:none"
-       d="M -142.33094,698.80139 C -85.843755,659.77423 41.526761,602.96036 74.165424,503.75831 162.51501,614.79844 165.21262,706.29631 163.58915,774.3225 161.12171,877.71241 61.277973,970.01498 -56.289593,970.01498 -249.17133,960.80942 -265.97115,787.56658 -142.33094,698.80139 z"
-       id="path2989-1-0"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccscc"
-       inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
-       inkscape:export-xdpi="50"
-       inkscape:export-ydpi="50" />
+    <g
+       id="g3925"
+       transform="translate(-771.42858,-140)">
+      <rect
+         y="580.21161"
+         x="837.08856"
+         height="512"
+         width="512"
+         id="rect3894"
+         style="fill:#90f8ff;fill-opacity:0;stroke:none" />
+      <g
+         transform="matrix(0.31034065,0,0,0.31034065,593.27356,792.31493)"
+         id="g3886">
+        <g
+           id="g3063"
+           transform="translate(1656.6502,-113.13709)">
+          <path
+             inkscape:export-ydpi="50"
+             inkscape:export-xdpi="50"
+             inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
+             sodipodi:nodetypes="cczcc"
+             inkscape:connector-curvature="0"
+             id="path2989-4"
+             d="M -526.18002,49.575563 C -298.87246,-107.47194 -365.4871,-362.06218 -495.63963,-570.31607 137.65572,-562.88025 646.92791,3.6010725 704.85971,353.47678 762.79159,703.35244 408.89726,1079.4839 -64.201286,1079.4839 -840.36825,1042.44 -1023.7152,406.77174 -526.18002,49.575563 z"
+             style="fill:#ffe190;fill-opacity:1;stroke:none" />
+          <path
+             inkscape:export-ydpi="50"
+             inkscape:export-xdpi="50"
+             inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
+             sodipodi:nodetypes="cczcc"
+             inkscape:connector-curvature="0"
+             id="path2989"
+             d="M -498.69061,86.255436 C -284.75544,-61.553033 -319.94586,-341.03724 -442.44159,-537.03966 153.59729,-530.04129 605.4039,42.985601 659.92762,372.27829 714.45134,701.57098 381.37648,1055.5747 -63.88987,1055.5747 -794.39531,1020.7102 -966.95606,422.43794 -498.69061,86.255436 z"
+             style="fill:#ffc022;fill-opacity:1;stroke:none" />
+          <path
+             inkscape:export-ydpi="50"
+             inkscape:export-xdpi="50"
+             inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
+             sodipodi:nodetypes="cczcc"
+             inkscape:connector-curvature="0"
+             id="path2989-7"
+             d="M -324.77542,330.1287 C -164.90766,219.67557 -44.14786,-47.12088 -107.22293,-209.18878 269.3957,-90.29632 519.25857,264.36413 560.00258,510.43533 600.74668,756.50652 294.92402,1021.0436 -37.811074,1021.0436 -583.69735,994.99039 -674.69711,581.34847 -324.77542,330.1287 z"
+             style="fill:#ff9900;fill-opacity:1;stroke:none" />
+          <path
+             inkscape:export-ydpi="50"
+             inkscape:export-xdpi="50"
+             inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
+             sodipodi:nodetypes="ccscc"
+             inkscape:connector-curvature="0"
+             id="path2989-1"
+             d="M -220.65964,481.82714 C -113.52301,407.80612 6.5916026,274.68763 -21.476894,128.80609 222.46022,243.74489 358.70076,496.01254 359.56491,625.06456 360.85914,818.35274 165.51601,996.22551 -57.468991,996.22551 -423.29889,978.76573 -455.16235,650.18401 -220.65964,481.82714 z"
+             style="fill:#ff6600;fill-opacity:1;stroke:none" />
+          <path
+             inkscape:export-ydpi="50"
+             inkscape:export-xdpi="50"
+             inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
+             sodipodi:nodetypes="ccscc"
+             inkscape:connector-curvature="0"
+             id="path2989-1-0"
+             d="M -142.33094,698.80139 C -85.843755,659.77423 41.526761,602.96036 74.165424,503.75831 162.51501,614.79844 165.21262,706.29631 163.58915,774.3225 161.12171,877.71241 61.277973,970.01498 -56.289593,970.01498 -249.17133,960.80942 -265.97115,787.56658 -142.33094,698.80139 z"
+             style="fill:#920000;fill-opacity:1;stroke:none" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g3914"
+       transform="translate(437.14286,-177.14286)"
+       inkscape:export-filename="C:\Users\Daniel\AndroidStudioProjects\Light\app\src\main\ic_launcher-web.png"
+       inkscape:export-xdpi="90.000008"
+       inkscape:export-ydpi="90.000008">
+      <rect
+         y="618.85553"
+         x="-1046.1504"
+         height="512"
+         width="512"
+         id="rect3894-4"
+         style="fill:#90f8ff;fill-opacity:0;stroke:none" />
+      <g
+         transform="matrix(0.31034065,0,0,0.31034065,-588.2619,827.89913)"
+         id="g3879">
+        <path
+           style="fill:#90f8ff;fill-opacity:1;stroke:none"
+           d="m -1130.6047,-53.702235 c 227.30746,-157.047495 160.69286,-411.637795 30.5404,-619.891665 633.29526,7.43582 1142.567346,573.917165 1200.49925,923.79287 57.9318,349.8756 -295.96249,726.0071 -769.06099,726.0071 -776.16696,-37.0439 -959.51386,-672.7122 -461.97866,-1029.908305 z"
+           id="path2989-4-1"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cczcc"
+           inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
+           inkscape:export-xdpi="50"
+           inkscape:export-ydpi="50" />
+        <path
+           style="fill:#ecff22;fill-opacity:1;stroke:none"
+           d="m -1103.1153,-17.022435 c 213.93506,-147.808395 178.74466,-427.292595 56.249,-623.295055 596.03876,6.99837 1047.84534615,580.025255 1102.369146,909.31796 54.523704,329.2926 -278.551186,683.2964 -723.817486,683.2964 -730.50536,-34.8645 -903.06616,-633.1368 -434.80066,-969.319305 z"
+           id="path2989-3"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cczcc"
+           inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
+           inkscape:export-xdpi="50"
+           inkscape:export-ydpi="50" />
+        <path
+           style="fill:#ff006a;fill-opacity:1;stroke:none"
+           d="m -929.20014,226.85087 c 159.8677,-110.4531 280.6275,-377.2496 217.5525,-539.3175 376.6185,118.8925 626.481396,473.5529 667.225396,719.6241 40.7440902,246.0712 -265.078496,510.6083 -597.813596,510.6083 -545.88626,-26.0532 -636.88596,-439.6952 -286.9643,-690.9149 z"
+           id="path2989-7-8"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cczcc"
+           inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
+           inkscape:export-xdpi="50"
+           inkscape:export-ydpi="50" />
+        <path
+           style="fill:#00fff7;fill-opacity:1;stroke:none"
+           d="m -825.08444,378.54927 c 107.1367,-74.021 227.2513,-207.1395 199.1828,-353.021005 243.9371,114.938805 380.1776,367.206405 381.0418,496.258405 1.2942,193.2882 -194.0489,371.161 -417.0339,371.161 -365.82986,-17.4598 -397.69336,-346.0415 -163.1907,-514.3984 z"
+           id="path2989-1-9"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccscc"
+           inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
+           inkscape:export-xdpi="50"
+           inkscape:export-ydpi="50" />
+        <path
+           style="fill:#ffffff;fill-opacity:1;stroke:none"
+           d="m -746.75574,595.52357 c 56.4872,-39.0272 183.8577,-95.8411 216.4964,-195.0431 88.3496,111.0401 91.0472,202.538 89.4237,270.5642 -2.4675,103.3899 -102.3111,195.6925 -219.8787,195.6925 -192.8817,-9.2056 -209.6816,-182.4484 -86.0414,-271.2136 z"
+           id="path2989-1-0-3"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccscc"
+           inkscape:export-filename="C:\Users\Daniel\Desktop\flame.png"
+           inkscape:export-xdpi="50"
+           inkscape:export-ydpi="50" />
+      </g>
+    </g>
   </g>
 </svg>
