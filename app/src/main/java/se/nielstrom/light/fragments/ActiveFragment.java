@@ -11,6 +11,7 @@ public abstract class ActiveFragment extends Fragment {
     private boolean isResumed = false;
     protected boolean isActive = false;
     private boolean isToBeActivated = false;
+    private boolean isFirstUse = true;
 
     protected abstract void onActivate();
     protected abstract void onDeactivate();
@@ -29,7 +30,17 @@ public abstract class ActiveFragment extends Fragment {
             isActive = true;
             onActivate();
         }
+
+        if (isFirstUse) {
+            isFirstUse = false;
+            onFirstUse();
+        }
     }
+
+    /**
+     * Method stub meant to be overridden by implementor.
+     */
+    protected void onFirstUse() {}
 
     public void deactivate() {
         if (isActive) {

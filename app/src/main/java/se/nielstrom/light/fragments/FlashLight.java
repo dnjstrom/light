@@ -1,13 +1,27 @@
 package se.nielstrom.light.fragments;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.renderscript.Sampler;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.Interpolator;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.OvershootInterpolator;
 import android.widget.ProgressBar;
 
 import se.nielstrom.light.app.R;
@@ -70,6 +84,38 @@ public class FlashLight extends ActiveFragment {
         camera.stopPreview();
         view.setKeepScreenOn(false);
     }
+
+    @Override
+    protected void onFirstUse() {
+        final ViewPager pager = (ViewPager) getActivity().findViewById(R.id.mainpager);
+
+        ValueAnimator animator = ValueAnimator.ofInt(0, -100, 0);
+        animator.setInterpolator(new BounceInterpolator());
+        animator.setDuration(1000);
+
+        animator.addListener( new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationStart(Animator animation) { pager.beginFakeDrag(); }
+            @Override
+            public void onAnimationEnd(Animator animation) { pager.endFakeDrag(); }
+        });
+
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            int oldValue;
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                int value = (Integer) valueAnimator.getAnimatedValue();
+                if (pager.isFakeDragging()) {
+                    pager.fakeDragBy(value - oldValue);
+                }
+                oldValue = value;
+            }
+        });
+
+        animator.setStartDelay(200);
+        animator.start();
+    }
+
 
     private class FlashSafeGuard extends AsyncTask<Void, Void, Void> {
 

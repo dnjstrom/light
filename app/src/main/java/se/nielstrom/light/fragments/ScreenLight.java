@@ -1,11 +1,13 @@
 package se.nielstrom.light.fragments;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -13,9 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-
-import java.util.Timer;
-import java.util.TimerTask;
+import android.view.animation.BounceInterpolator;
 
 import fr.castorflex.android.verticalviewpager.VerticalViewPager;
 import se.nielstrom.light.app.R;
@@ -65,6 +65,37 @@ public class ScreenLight extends ActiveFragment implements View.OnTouchListener,
         if (timer != null) {
             timer.cancel(true);
         }
+    }
+
+    @Override
+    protected void onFirstUse() {
+        final VerticalViewPager pager = (VerticalViewPager) getActivity().findViewById(R.id.screenpager);
+
+        ValueAnimator animator = ValueAnimator.ofInt(0, -200, 0);
+        animator.setInterpolator(new BounceInterpolator());
+        animator.setDuration(1000);
+
+        animator.addListener( new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationStart(Animator animation) { pager.beginFakeDrag(); }
+            @Override
+            public void onAnimationEnd(Animator animation) { pager.endFakeDrag(); }
+        });
+
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            int oldValue;
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                int value = (Integer) valueAnimator.getAnimatedValue();
+                if (pager.isFakeDragging()) {
+                    pager.fakeDragBy(value - oldValue);
+                }
+                oldValue = value;
+            }
+        });
+
+        animator.setStartDelay(200);
+        animator.start();
     }
 
     private void setBrightness(float brightness) {
