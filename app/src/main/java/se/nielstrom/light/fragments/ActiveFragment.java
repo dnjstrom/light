@@ -14,6 +14,7 @@ public abstract class ActiveFragment extends Fragment {
     protected boolean isActive = false;
     private boolean isToBeActivated = false;
     protected boolean isFirstUse = true;
+    private boolean isLocked = false;
 
     protected abstract void onActivate();
     protected abstract void onDeactivate();
@@ -38,6 +39,10 @@ public abstract class ActiveFragment extends Fragment {
             return;
         }
 
+        if (isLocked) {
+            return;
+        }
+
         if (!isActive) {
             isActive = true;
             onActivate();
@@ -58,10 +63,18 @@ public abstract class ActiveFragment extends Fragment {
     protected void onFirstUse() {}
 
     public void deactivate() {
+        if (isLocked) {
+            return;
+        }
+
         if (isActive) {
             isActive = false;
             onDeactivate();
         }
+    }
+
+    public void lockActivationState(boolean locked) {
+        this.isLocked = locked;
     }
 
     @Override

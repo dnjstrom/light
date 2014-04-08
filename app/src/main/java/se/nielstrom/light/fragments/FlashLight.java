@@ -96,9 +96,15 @@ public class FlashLight extends ActiveFragment {
 
         animator.addListener( new AnimatorListenerAdapter() {
             @Override
-            public void onAnimationStart(Animator animation) { pager.beginFakeDrag(); }
+            public void onAnimationStart(Animator animation) {
+                lockActivationState(true);
+                pager.beginFakeDrag();
+            }
             @Override
-            public void onAnimationEnd(Animator animation) { pager.endFakeDrag(); }
+            public void onAnimationEnd(Animator animation) {
+                lockActivationState(false);
+                pager.endFakeDrag();
+            }
         });
 
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
