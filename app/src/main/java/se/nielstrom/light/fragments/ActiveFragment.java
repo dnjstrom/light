@@ -1,5 +1,7 @@
 package se.nielstrom.light.fragments;
 
+import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 /**
@@ -11,10 +13,20 @@ public abstract class ActiveFragment extends Fragment {
     private boolean isResumed = false;
     protected boolean isActive = false;
     private boolean isToBeActivated = false;
-    private boolean isFirstUse = true;
+    protected boolean isFirstUse = true;
 
     protected abstract void onActivate();
     protected abstract void onDeactivate();
+
+    protected SharedPreferences settings;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        settings = getActivity().getSharedPreferences("ActiveFragment_" + getClass().getSimpleName(), 0);
+        isFirstUse = settings.getBoolean("isFirstUse", true);
+    }
+
 
     /**
      * Activates the fragment by calling onActivate. If the fragment is not yet resumed, it will
@@ -33,6 +45,9 @@ public abstract class ActiveFragment extends Fragment {
 
         if (isFirstUse) {
             isFirstUse = false;
+            settings.edit()
+                    .putBoolean("isFirstUse", false)
+                    .commit();
             onFirstUse();
         }
     }
