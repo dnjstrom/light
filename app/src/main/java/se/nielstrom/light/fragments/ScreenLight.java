@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.BounceInterpolator;
+import android.view.animation.LinearInterpolator;
 
 import fr.castorflex.android.verticalviewpager.VerticalViewPager;
 import se.nielstrom.light.app.R;
@@ -70,8 +71,8 @@ public class ScreenLight extends ActiveFragment implements View.OnTouchListener,
     protected void onFirstUse() {
         final VerticalViewPager pager = (VerticalViewPager) getActivity().findViewById(R.id.screenpager);
 
-        ValueAnimator animator = ValueAnimator.ofInt(0, -200, 0);
-        animator.setInterpolator(new BounceInterpolator());
+        ValueAnimator animator = ValueAnimator.ofInt(0, -200, -200, -200, 0);
+        animator.setInterpolator(new LinearInterpolator());
         animator.setDuration(1000);
 
         animator.addListener( new AnimatorListenerAdapter() {

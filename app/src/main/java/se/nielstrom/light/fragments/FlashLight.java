@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.BounceInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.ProgressBar;
 
 import se.nielstrom.light.app.R;
@@ -104,8 +105,8 @@ public class FlashLight extends ActiveFragment {
     protected void onFirstUse() {
         final ViewPager pager = (ViewPager) getActivity().findViewById(R.id.mainpager);
 
-        ValueAnimator animator = ValueAnimator.ofInt(0, -100, 0);
-        animator.setInterpolator(new BounceInterpolator());
+        ValueAnimator animator = ValueAnimator.ofInt(0, -100, -100, -100, 0);
+        animator.setInterpolator(new LinearInterpolator());
         animator.setDuration(1000);
 
         animator.addListener( new AnimatorListenerAdapter() {
