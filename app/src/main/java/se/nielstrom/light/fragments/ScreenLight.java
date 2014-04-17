@@ -4,11 +4,8 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -28,6 +25,8 @@ public class ScreenLight extends ActiveFragment implements View.OnTouchListener,
     private View view;
     private HideUiTask timer;
     private int hiddenUiState = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
+    private int extendedLayout = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
+    private int hideDelay = 2 * 1000;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,17 +41,16 @@ public class ScreenLight extends ActiveFragment implements View.OnTouchListener,
         pager.setAdapter(adapter);
         pager.setCurrentItem(colors.length * 1000);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            view.setOnSystemUiVisibilityChangeListener(this);
-            pager.setOnTouchListener(this);
-        }
+        view.setOnSystemUiVisibilityChangeListener(this);
+        pager.setOnTouchListener(this);
 
         return view;
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+
     @Override
     protected void onActivate() {
+        //view.setSystemUiVisibility(extendedLayout);
         setBrightness(1F); // max brightness
         view.setKeepScreenOn(true);
         restartUiTimer();
@@ -60,6 +58,7 @@ public class ScreenLight extends ActiveFragment implements View.OnTouchListener,
 
     @Override
     protected void onDeactivate() {
+        //view.setSystemUiVisibility(view.getSystemUiVisibility() & ~extendedLayout);
         setBrightness(-1F); // user setting
         view.setKeepScreenOn(false);
         if (timer != null) {
@@ -106,10 +105,6 @@ public class ScreenLight extends ActiveFragment implements View.OnTouchListener,
     }
 
     private void restartUiTimer() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-            return;
-        }
-
         if (timer != null) {
             timer.cancel(true);
         }
@@ -137,7 +132,7 @@ public class ScreenLight extends ActiveFragment implements View.OnTouchListener,
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                Thread.sleep(3*1000);
+                Thread.sleep(hideDelay);
             } catch (InterruptedException e) {}
             return null;
         }
