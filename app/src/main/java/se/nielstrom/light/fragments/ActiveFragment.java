@@ -83,6 +83,7 @@ public abstract class ActiveFragment extends Fragment {
         isResumed = true;
 
         if (isToBeActivated) {
+            isToBeActivated = false;
             activate();
         }
     }

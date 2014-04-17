@@ -2,27 +2,17 @@ package se.nielstrom.light.fragments;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
-import android.content.SharedPreferences;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.renderscript.Sampler;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.BounceInterpolator;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.Interpolator;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.OvershootInterpolator;
 import android.widget.ProgressBar;
 
 import se.nielstrom.light.app.R;
@@ -37,6 +27,7 @@ public class FlashLight extends ActiveFragment {
     private int deactivationDelay = 60 * 1000; // 1 min
     private View view;
     private ProgressBar progressBar;
+    private boolean isLoadingCamera = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -62,11 +53,34 @@ public class FlashLight extends ActiveFragment {
 
     @Override
     protected void onActivate() {
-        if (camera == null) {
-            camera = Camera.open();
-            parameters = camera.getParameters();
+        if (isLoadingCamera) {
+            return;
+        } else if (camera == null) {
+            // If no camera, load it asynchronously
+            isLoadingCamera = true;
+            new AsyncActivation().execute();
+        } else {
+            turnOnFlash();
+        }
+    }
+
+    private class AsyncActivation extends AsyncTask<Void, Camera, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            publishProgress(Camera.open());
+            return null;
         }
 
+        @Override
+        protected void onProgressUpdate(Camera... cs) {
+            camera = cs[0];
+            parameters = camera.getParameters();
+            turnOnFlash();
+            isLoadingCamera = false;
+        }
+    }
+
+    private void turnOnFlash() {
         parameters.setFlashMode(Parameters.FLASH_MODE_TORCH);
         camera.setParameters(parameters);
         camera.startPreview();
