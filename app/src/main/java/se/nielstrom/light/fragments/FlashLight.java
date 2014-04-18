@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.BounceInterpolator;
@@ -17,12 +19,14 @@ import android.view.animation.LinearInterpolator;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 import se.nielstrom.light.app.R;
 
 /**
  * Created by Daniel on 2014-04-06.
  */
-public class FlashLight extends ActiveFragment {
+public class FlashLight extends ActiveFragment implements SurfaceHolder.Callback {
     private Camera camera;
     private Parameters parameters;
     private FlashSafeGuard timer;
@@ -30,6 +34,7 @@ public class FlashLight extends ActiveFragment {
     private View view;
     private ProgressBar progressBar;
     private boolean isLoadingCamera = false;
+    private SurfaceHolder holder;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,6 +42,9 @@ public class FlashLight extends ActiveFragment {
             return null;
         }
         view = inflater.inflate(R.layout.flashlight, container, false);
+
+        SurfaceView surfaceView = (SurfaceView) view.findViewById(R.id.surfaceView);
+        holder = surfaceView.getHolder();
 
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         progressBar.setMax(deactivationDelay);
@@ -66,6 +74,34 @@ public class FlashLight extends ActiveFragment {
         }
     }
 
+    @Override
+    public void surfaceCreated(SurfaceHolder surfaceHolder) {
+        holder = surfaceHolder;
+
+        if (camera == null) {
+            return;
+        }
+
+        try {
+            camera.setPreviewDisplay(holder);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+
+    }
+
+    @Override
+    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+        if (camera != null) {
+            camera.stopPreview();
+        }
+        holder = null;
+    }
+
     private class AsyncActivation extends AsyncTask<Void, Camera, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
@@ -83,6 +119,14 @@ public class FlashLight extends ActiveFragment {
             camera = cs[0];
 
             if (camera != null) {
+                holder.addCallback(FlashLight.this);
+
+                try {
+                    camera.setPreviewDisplay(holder);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
                 parameters = camera.getParameters();
                 turnOnFlash();
             }

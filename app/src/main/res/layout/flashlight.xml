@@ -6,6 +6,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@android:color/background_dark">
 
+    <SurfaceView
+        android:layout_width="1px"
+        android:layout_height="1px"
+        android:id="@+id/surfaceView" />
+
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
@@ -14,4 +19,5 @@
         android:layout_gravity="center_horizontal|top"
         android:max="100"
         android:progress="100" />
+
 </FrameLayout>
