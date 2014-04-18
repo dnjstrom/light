@@ -33,13 +33,6 @@ public class MainActivity extends FragmentActivity {
         f.activate();
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
     private void initialisePaging() {
         List<ActiveFragment> fragments = new ArrayList<ActiveFragment>();
 

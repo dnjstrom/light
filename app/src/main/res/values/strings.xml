@@ -4,5 +4,7 @@
     <string name="app_name">Light</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="camera_busy">The camera is in use by a different application. Close it to use the
+    flashlight.</string>
 
 </resources>

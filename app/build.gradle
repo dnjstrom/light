@@ -17,10 +17,10 @@ android {
 
     signingConfigs {
         release {
-            storeFile file('')
-            storePassword ''
+            storeFile file('C:\\path\\to\\keystore.jks')
+            storePassword 'password'
             keyAlias 'Light'
-            keyPassword ''
+            keyPassword 'password'
         }
     }
 

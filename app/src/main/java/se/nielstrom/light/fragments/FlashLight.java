@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import se.nielstrom.light.app.R;
 
@@ -68,16 +69,30 @@ public class FlashLight extends ActiveFragment {
     private class AsyncActivation extends AsyncTask<Void, Camera, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
-            publishProgress(Camera.open());
+
+            try {
+                publishProgress(Camera.open(0));
+            } catch (RuntimeException e) {
+                cancel(false);
+            }
             return null;
         }
 
         @Override
         protected void onProgressUpdate(Camera... cs) {
             camera = cs[0];
-            parameters = camera.getParameters();
-            turnOnFlash();
+
+            if (camera != null) {
+                parameters = camera.getParameters();
+                turnOnFlash();
+            }
+
             isLoadingCamera = false;
+        }
+
+        @Override
+        protected void onCancelled(Void v) {
+            Toast.makeText(getActivity(), R.string.camera_busy, Toast.LENGTH_LONG);
         }
     }
 
