@@ -6,7 +6,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
+import android.view.MotionEvent;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +22,7 @@ public class MainActivity extends FragmentActivity {
 
     private FragmentStatePagerAdapter adapter;
     private ViewPager pager;
+    private int pager_state;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,12 +55,35 @@ public class MainActivity extends FragmentActivity {
             @Override
             public void onPageScrollStateChanged(int state) {
                 ActiveFragment fragment = (ActiveFragment) adapter.getItem(pager.getCurrentItem());
+                pager_state = state;
 
                 if (state == ViewPager.SCROLL_STATE_DRAGGING) {
                     fragment.deactivate();
                 } else {
                     fragment.activate();
                 }
+            }
+        });
+
+        pager.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (pager_state != ViewPager.SCROLL_STATE_IDLE) {
+                    return false;
+                }
+
+                ActiveFragment fragment = ((ActiveFragment) adapter.getItem(pager.getCurrentItem()));
+
+                switch (motionEvent.getActionMasked()) {
+                    case MotionEvent.ACTION_DOWN:
+                        fragment.deactivate();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_CANCEL:
+                        fragment.activate();
+                        break;
+                }
+                return false;
             }
         });
     }
